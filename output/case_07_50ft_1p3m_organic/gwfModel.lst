@@ -1,0 +1,2459 @@
+                                   MODFLOW 6
+                U.S. GEOLOGICAL SURVEY MODULAR HYDROLOGIC MODEL
+                          GROUNDWATER FLOW MODEL (GWF)
+                            VERSION 6.7.0 02/05/2026
+
+   MODFLOW 6 compiled Feb 05 2026 22:36:44 with Intel(R) Fortran Intel(R) 64
+   Compiler Classic for applications running on Intel(R) 64, Version 2021.6.0
+                             Build 20220226_000000
+
+This software has been approved for release by the U.S. Geological 
+Survey (USGS). Although the software has been subjected to rigorous 
+review, the USGS reserves the right to update the software as needed 
+pursuant to further analysis and review. No warranty, expressed or 
+implied, is made by the USGS or the U.S. Government as to the 
+functionality of the software and related material nor shall the 
+fact of release constitute any such warranty. Furthermore, the 
+software is released on condition that neither the USGS nor the U.S. 
+Government shall be held liable for any damages resulting from its 
+authorized or unauthorized use. Also refer to the USGS Water 
+Resources Software User Rights Notice for complete use, copyright, 
+and distribution information.
+
+
+As a work of the United States Government, this USGS product is 
+in the public domain within the United States. You can copy, 
+modify, distribute, and perform the work, even for commercial 
+purposes, all without asking permission. Additionally, USGS 
+waives copyright and related rights in the work worldwide 
+through CC0 1.0 Universal Public Domain Dedication 
+(https://creativecommons.org/publicdomain/zero/1.0/).
+
+The following GNU Lesser General Public License (LGPL) libraries
+are used in this USGS product:
+
+    SPARSKIT version 2.0
+      ilut, luson, and qsplit 
+      (https://www-users.cse.umn.edu/~saad/software/SPARSKIT/)
+
+    RCM - Reverse Cuthill McKee Ordering
+      (https://people.math.sc.edu/Burkardt/f_src/rcm/rcm.html)
+
+    BLAS - Basic Linear Algebra Subprograms Level 1
+      (https://people.math.sc.edu/Burkardt/f_src/blas1_d/blas1_d.html)
+
+    SPARSEKIT - Sparse Matrix Utility Package
+      amux, dperm, dvperm, rperm, and cperm
+      (https://people.sc.fsu.edu/~jburkardt/f77_src/sparsekit/sparsekit.html)
+
+The following BSD-3 License libraries are used in this USGS product:
+
+    Modern Fortran DAG Library
+      Copyright (c) 2018, Jacob Williams
+      All rights reserved.
+      (https://github.com/jacobwilliams/daglib)
+
+MODFLOW 6 compiler options: /Isrc\libmf6_external.a.p /Isrc\libmf6core.a.p
+/Isrc /I..\src /MT /nologo /warn:general /warn:truncated_source /stand:f18
+/O2 /fpe:0 /heap-arrays:0 /traceback /fpp /Qdiag-disable:7416
+/Qdiag-disable:7025 /Qdiag-disable:5268 /Qdiag-disable:10448
+/Fdsrc\libmf6core.a.p\Utilities_compilerversion.F90.pdb
+/module:src\libmf6core.a.p
+/Fosrc/libmf6core.a.p/Utilities_compilerversion.F90.obj /c
+
+System command used to initiate simulation:
+C:\Users\mmmol\farm_tile_drain_model\.venv\Scripts\mf6.exe
+
+MODFLOW was compiled using uniform precision.
+
+Real Variables
+  KIND: 8
+  TINY (smallest non-zero value):    2.225074-308
+  HUGE (largest value):    1.797693+308
+  PRECISION: 15
+  SIZE IN BITS: 64
+
+Integer Variables
+  KIND: 4
+  HUGE (largest value): 2147483647
+  SIZE IN BITS: 32
+
+Long Integer Variables
+  KIND: 8
+  HUGE (largest value): 9223372036854775807
+  SIZE IN BITS: 64
+
+Logical Variables
+  KIND: 4
+  SIZE IN BITS: 32
+ 
+ NAMEFILE OPTIONS:
+    FLOWS WILL BE SAVED TO BUDGET FILE SPECIFIED IN OUTPUT CONTROL
+ END NAMEFILE OPTIONS:
+
+ DIS -- STRUCTURED GRID DISCRETIZATION PACKAGE, VERSION 2 : 3/27/2014 - INPUT READ FROM MEMPATH: __INPUT__/GWFMODEL/DIS                            
+
+
+ NPF -- NODE PROPERTY FLOW PACKAGE, VERSION 1, 3/30/2015 INPUT READ FROM MEMPATH: __INPUT__/GWFMODEL/NPF                            
+
+
+ IC -- Initial Conditions Package, Version 8, 3/28/2015 input read from mempath: __INPUT__/GWFMODEL/IC                             
+
+
+ Setting Discretization Options
+ End Setting Discretization Options
+
+ Setting Discretization Dimensions
+    NLAY = 1
+    NROW = 32
+    NCOL = 34
+ End Setting Discretization Dimensions
+
+ Setting Discretization Griddata
+    DELR set from input file
+    DELC set from input file
+    TOP set from input file
+    BOTM set from input file
+ End Setting Discretization Griddata
+
+ Setting NPF Options
+    Specific discharge will be calculated at cell centers and written to DATA-SPDIS in budget file when requested.
+ End Setting NPF Options
+
+ Setting NPF Griddata
+    ICELLTYPE set from input file
+    K set from input file
+    K33 set from input file
+    K22 not provided.  Setting K22 = K.
+ End Setting NPF Griddata
+
+
+ DRN -- DRN PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM MEMPATH: __INPUT__/GWFMODEL/DRN_0                          
+
+ PROCESSING DRN BASE OPTIONS
+    FLOWS WILL BE SAVED TO BUDGET FILE SPECIFIED IN OUTPUT CONTROL
+ END OF DRN BASE OPTIONS
+
+ PROCESSING DRN OPTIONS
+ END OF DRN OPTIONS
+
+ PROCESSING DRN BASE DIMENSIONS
+    MAXBOUND =     203
+ END OF DRN BASE DIMENSIONS
+
+ RIV -- RIV PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM MEMPATH: __INPUT__/GWFMODEL/RIV_0                          
+
+ PROCESSING RIV BASE OPTIONS
+ END OF RIV BASE OPTIONS
+
+ PROCESSING RIV OPTIONS
+ END OF RIV OPTIONS
+
+ PROCESSING RIV BASE DIMENSIONS
+    MAXBOUND =      34
+ END OF RIV BASE DIMENSIONS
+
+ RCH -- RCH PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM MEMPATH: __INPUT__/GWFMODEL/RCHA_0                         
+
+ PROCESSING RCH BASE OPTIONS
+    PACKAGE INPUT WILL BE READ AS LAYER ARRAYS.
+ END OF RCH BASE OPTIONS
+
+ PROCESSING RCHA OPTIONS
+ END OF RCHA OPTIONS
+    STRT set from input file
+
+ STO -- STORAGE PACKAGE, VERSION 1, 5/19/2014 INPUT READ FROM MEMPATH: __INPUT__/GWFMODEL/STO                            
+
+
+ PROCESSING STORAGE OPTIONS
+ END OF STORAGE OPTIONS
+    BINARY GRID INFORMATION WILL BE WRITTEN TO:
+      UNIT NUMBER: 1017
+      FILE NAME: gwfModel.dis.grb
+
+ OPENED gwfModel.dis.grb
+ FILE TYPE:DATA(BINARY)   UNIT 1017   STATUS:REPLACE             
+ FORMAT:UNFORMATTED            ACCESS:STREAM              
+ ACTION:READWRITE           
+
+      THE LAST TIME STEP WILL BE PRINTED
+      THE LAST TIME STEP WILL BE PRINTED
+
+ PROCESSING OC OPTIONS
+
+    BUDGET INFORMATION WILL BE WRITTEN TO:
+      UNIT NUMBER: 1018
+      FILE NAME: gwfModel.cbc
+
+ OPENED gwfModel.cbc
+ FILE TYPE:DATA(BINARY)   UNIT 1018   STATUS:REPLACE             
+ FORMAT:UNFORMATTED            ACCESS:STREAM              
+ ACTION:READWRITE           
+
+    HEAD INFORMATION WILL BE WRITTEN TO:
+      UNIT NUMBER: 1019
+      FILE NAME: gwfModel.hds
+
+ OPENED gwfModel.hds
+ FILE TYPE:DATA(BINARY)   UNIT 1019   STATUS:REPLACE             
+ FORMAT:UNFORMATTED            ACCESS:STREAM              
+ ACTION:READWRITE           
+
+ END OF OC OPTIONS
+
+start timestep kper="1" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 1
+      THE LAST TIME STEP WILL BE SAVED
+      THE LAST TIME STEP WILL BE SAVED
+      THE LAST TIME STEP WILL BE PRINTED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 1
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 1 IS TRANSIENT
+
+
+end timestep
+
+
+start timestep kper="1" kstp="2" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="3" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="4" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="5" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="6" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="7" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="8" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="9" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="10" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="11" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="12" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="13" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="14" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="15" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="16" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="17" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="18" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="19" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="20" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="21" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="22" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="23" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="24" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="25" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="26" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="27" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="28" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="29" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="30" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="31" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="32" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="33" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="34" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="35" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="36" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="37" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="38" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="39" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="40" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="41" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="42" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="43" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="44" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="45" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="46" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="47" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="48" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="49" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="50" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="51" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="52" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="53" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="54" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="55" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="56" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="57" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="58" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="59" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="60" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="61" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="62" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="63" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="64" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="65" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="66" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="67" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="68" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="69" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="70" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="71" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="72" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="73" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="74" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="75" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="76" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="77" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="78" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="79" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="80" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="81" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="82" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="83" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="84" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="85" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="86" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="87" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="88" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="89" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="90" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="91" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="92" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="93" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="94" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="95" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="96" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="97" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="98" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="99" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="100" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="101" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="102" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="103" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="104" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="105" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="106" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="107" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="108" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="109" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="110" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="111" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="112" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="113" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="114" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="115" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="116" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="117" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="118" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="119" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="120" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="121" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="122" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="123" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="124" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="125" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="126" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="127" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="128" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="129" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="130" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="131" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="132" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="133" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="134" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="135" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="136" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="137" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="138" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="139" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="140" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="141" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="142" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="143" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="144" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="145" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="146" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="147" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="148" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="149" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="150" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="151" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="152" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="153" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="154" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="155" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="156" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="157" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="158" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="159" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="160" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="161" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="162" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="163" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="164" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="165" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="166" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="167" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="168" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="169" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="170" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="171" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="172" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="173" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="174" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="175" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="176" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="177" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="178" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="179" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="180" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="181" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="182" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="183" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="184" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="185" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="186" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="187" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="188" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="189" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="190" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="191" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="192" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="193" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="194" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="195" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="196" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="197" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="198" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="199" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="200" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="201" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="202" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="203" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="204" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="205" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="206" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="207" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="208" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="209" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="210" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="211" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="212" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="213" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="214" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="215" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="216" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="217" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="218" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="219" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="220" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="221" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="222" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="223" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="224" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="225" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="226" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="227" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="228" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="229" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="230" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="231" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="232" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="233" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="234" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="235" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="236" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="237" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="238" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="239" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="240" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="241" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="242" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="243" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="244" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="245" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="246" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="247" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="248" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="249" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="250" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="251" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="252" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="253" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="254" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="255" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="256" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="257" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="258" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="259" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="260" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="261" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="262" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="263" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="264" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="265" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="266" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="267" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="268" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="269" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="270" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="271" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="272" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="273" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="274" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="275" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="276" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="277" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="278" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="279" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="280" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="281" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="282" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="283" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="284" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="285" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="286" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="287" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="288" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="289" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="290" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="291" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="292" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="293" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="294" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="295" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="296" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="297" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="298" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="299" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="300" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="301" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="302" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="303" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="304" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="305" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="306" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="307" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="308" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="309" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="310" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="311" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="312" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="313" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="314" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="315" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="316" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="317" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="318" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="319" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="320" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="321" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="322" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="323" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="324" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="325" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="326" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="327" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="328" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="329" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="330" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="331" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="332" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="333" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="334" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="335" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="336" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="337" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="338" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="339" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="340" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="341" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="342" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="343" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="344" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="345" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="346" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="347" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="348" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="349" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="350" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="351" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="352" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="353" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="354" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="355" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="356" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="357" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="358" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="359" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="360" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="361" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="362" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="363" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="364" mode="normal"
+
+
+end timestep
+
+
+start timestep kper="1" kstp="365" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1018 AT TIME STEP    365, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1018 AT TIME STEP    365, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1018 AT TIME STEP    365, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL GWFMODEL         PACKAGE NPF             CONNECTED TO MODEL GWFMODEL         PACKAGE NPF              ON UNIT   1018 AT TIME STEP    365, STRESS PERIOD      1
+ UBDSV06 SAVING              DRN IN MODEL GWFMODEL         PACKAGE GWFMODEL        CONNECTED TO MODEL GWFMODEL         PACKAGE DRN_0            ON UNIT   1018 AT TIME STEP    365, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL GWFMODEL         PACKAGE GWFMODEL        CONNECTED TO MODEL GWFMODEL         PACKAGE RIV_0            ON UNIT   1018 AT TIME STEP    365, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL GWFMODEL         PACKAGE GWFMODEL        CONNECTED TO MODEL GWFMODEL         PACKAGE RCHA_0           ON UNIT   1018 AT TIME STEP    365, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1019 AT END OF TIME STEP  365, STRESS PERIOD    1
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP  365, STRESS PERIOD   1
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =           0.2671                STO-SS =       2.0530E-13     STORAGE                          
+              STO-SY =        1259.0233                STO-SY =       1.1591E-09     STORAGE                          
+                 DRN =           0.0000                   DRN =           0.0000     DRN_0                            
+                 RIV =       32757.9518                   RIV =          89.8186     RIV_0                            
+                RCHA =       10722.2400                  RCHA =          29.3760     RCHA_0                           
+
+            TOTAL IN =       44739.4823              TOTAL IN =         119.1946
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =       1.4129E-05                STO-SS =       3.6082E-16     STORAGE                          
+              STO-SY =       6.0274E-02                STO-SY =           0.0000     STORAGE                          
+                 DRN =       44738.7725                   DRN =         119.1946     DRN_0                            
+                 RIV =           0.5731                   RIV =           0.0000     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+
+           TOTAL OUT =       44739.4059             TOTAL OUT =         119.1946
+
+            IN - OUT =       7.6331E-02              IN - OUT =      -5.3623E-08
+
+ PERCENT DISCREPANCY =           0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP  365 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH  86400.      1440.0      24.000      1.0000     2.73785E-03
+ STRESS PERIOD TIME 3.15360E+07 5.25600E+05  8760.0      365.00     0.99932    
+         TOTAL TIME 3.15360E+07 5.25600E+05  8760.0      365.00     0.99932    
+
+
+end timestep
+

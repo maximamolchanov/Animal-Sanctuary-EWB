@@ -1,0 +1,13 @@
+caseFolder,caseTitle,drainSpacingFt,drainDepthM,organicSurface,avgDepthM,minDepthM,maxDepthM,plotPath
+case_01_no_drains,case 1: no tile drains,50,1.1,False,0.624332821931888,0.08729116682677329,1.513049327389325,output\case_01_no_drains\case_01_no_drains_plot.png
+case_02_50ft_1p1m,"case 2: 50 ft spacing, 1.1 m deep",50,1.1,False,1.5623693524394262,0.2608677104510235,2.495532470028067,output\case_02_50ft_1p1m\case_02_50ft_1p1m_plot.png
+case_03_50ft_1p1m_organic,"case 3: 50 ft spacing, 1.1 m deep, organic surface",50,1.1,True,1.0569689758104994,0.25979590044727274,1.284741931079651,output\case_03_50ft_1p1m_organic\case_03_50ft_1p1m_organic_plot.png
+case_04_35ft_1p1m_organic,"case 4: 35 ft spacing, 1.1 m deep, organic surface",35,1.1,True,1.0429078049770155,0.25566219010327984,1.2840724458305885,output\case_04_35ft_1p1m_organic\case_04_35ft_1p1m_organic_plot.png
+case_05_65ft_1p1m_organic,"case 5: 65 ft spacing, 1.1 m deep, organic surface",65,1.1,True,1.0187160350619657,0.2553744324962963,1.2824220418586663,output\case_05_65ft_1p1m_organic\case_05_65ft_1p1m_organic_plot.png
+case_06_50ft_0p9m_organic,"case 6: 50 ft spacing, 0.9 m deep, organic surface",50,0.9,True,0.8690131157305795,0.2565130337508208,1.0969402138481996,output\case_06_50ft_0p9m_organic\case_06_50ft_0p9m_organic_plot.png
+case_07_50ft_1p3m_organic,"case 7: 50 ft spacing, 1.3 m deep, organic surface",50,1.3,True,1.2446371391202093,0.2628935498233602,1.4711110360144772,output\case_07_50ft_1p3m_organic\case_07_50ft_1p3m_organic_plot.png
+case_08_50ft_1p5m_organic,"case 8: 50 ft spacing, 1.5 m deep, organic surface",50,1.5,True,1.4318677000789872,0.2658014904000652,1.6557948958125337,output\case_08_50ft_1p5m_organic\case_08_50ft_1p5m_organic_plot.png
+case_09_35ft_0p9m_organic,"case 9: 35 ft spacing, 0.9 m deep, organic surface",35,0.9,True,0.8590897859349669,0.25332280682521,1.0961492881651225,output\case_09_35ft_0p9m_organic\case_09_35ft_0p9m_organic_plot.png
+case_10_35ft_1p5m_organic,"case 10: 35 ft spacing, 1.5 m deep, organic surface",35,1.5,True,1.4093740081579795,0.2599080308867485,1.655986266290455,output\case_10_35ft_1p5m_organic\case_10_35ft_1p5m_organic_plot.png
+case_11_65ft_0p9m_organic,"case 11: 65 ft spacing, 0.9 m deep, organic surface",65,0.9,True,0.8382754251846939,0.25305046616935556,1.0958158616968063,output\case_11_65ft_0p9m_organic\case_11_65ft_0p9m_organic_plot.png
+case_12_65ft_1p5m_organic,"case 12: 65 ft spacing, 1.5 m deep, organic surface",65,1.5,True,1.3769856873941497,0.25959539547049815,1.6501442440468992,output\case_12_65ft_1p5m_organic\case_12_65ft_1p5m_organic_plot.png
